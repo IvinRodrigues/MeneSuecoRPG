@@ -1,0 +1,21 @@
+.chat {
+
+    color: white;
+    background-color: black;
+    width: 800px;
+    height: 200px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: -400px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transition-duration: .2s;
+
+}
+.chat-open {
+
+    bottom: 22px;
+    transition-duration: .2s;
+
+}

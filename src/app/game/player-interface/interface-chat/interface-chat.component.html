@@ -1,0 +1,19 @@
+<div [ngClass]="{'chat-open':chatStatus}" class="chat">
+
+    <div *ngIf="!battle">
+
+        <span>{{ enemy.name }}</span>
+        <p>{{ chatMessage }}</p>
+
+        <div *ngIf="firstInteraction && !enemy.defeated?.status">
+            <p *ngFor="let answer of enemy.answers" (click)="answerDialog(answer.reaction)">
+                {{ answer.answer }}
+            </p>
+        </div>
+
+        <button (click)="closeChat()">close chat</button>
+
+    </div>
+    <player-interface-battle [enemy]="enemy" (battleResult)="battleResult($event)" *ngIf="battle && !enemy.defeated?.status"></player-interface-battle>
+
+</div>

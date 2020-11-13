@@ -1,0 +1,9 @@
+<div [ngClass]="{'minimized-map-visible': !chatStatus}" class="minimized-map" (click)="changeMapCondition()">
+
+</div>
+
+<div *ngIf="map" class="maximized-map">
+
+    <button (click)="changeMapCondition()">Close map</button>
+
+</div>

@@ -1,0 +1,49 @@
+.player-hud {
+
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    z-index: 1;
+
+    .player-bars{
+
+        .health-bar {
+
+            display: inline-block;
+            width: 24px;
+            height: 300px;
+            background-color: green;
+            border-radius: 8px;
+            margin-left: 8px;
+
+        }
+
+        .mana-bar {
+
+            display: inline-block;
+            width: 24px;
+            height: 300px;
+            background-color: blue;
+            margin-left: 14px;
+            border-radius: 8px;
+
+        }
+
+    }
+
+    .player-picture {
+
+        .picture {
+
+            display: block;
+            width: 80px;
+            height: 80px;
+            background-color: wheat;
+            border-radius: 80px;
+            margin-top: 8px;
+
+        }
+
+    }
+
+}

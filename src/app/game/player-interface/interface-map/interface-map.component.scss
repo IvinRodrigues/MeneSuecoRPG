@@ -1,0 +1,30 @@
+.minimized-map {
+
+    width: 46px;
+    height: 46px;
+    background-color: red;
+    position: absolute;
+    bottom: 22px;
+    right: -46px;
+    z-index: 1;
+    transition-duration: .2s;
+
+}
+
+.minimized-map-visible {
+
+    right: 22px;
+    transition-duration: .2s;
+
+}
+
+.maximized-map {
+
+    width: var(--global-width);
+    height: var(--global-height);
+    background-color: rgba(255, 0, 0, 0.603);
+    position: absolute;
+    top: 0;
+    z-index: 2;
+
+}
