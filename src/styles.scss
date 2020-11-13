@@ -1,0 +1,22 @@
+:root {
+
+    --global-width: 1280px;
+    --global-height: 720px;
+
+}
+
+body {
+
+    background-color: #5a00a3;
+
+}
+
+.place-background {
+
+    width: var(--global-width); 
+    height: var(--global-height); 
+    position: absolute;
+    top: 0;
+    z-index: 0;
+
+}
