@@ -1,4 +1,4 @@
-<div id="diceWrapper" class="dice-wrapper">
+<div class="dice-wrapper" id="diceWrapper">
 
     <div class="cup"></div>
     <div class="dice">
@@ -11,16 +11,36 @@
 
     <div class="battle-wrapper">
 
-        <img id="player" class="images player-image" src="https://vignette.wikia.nocookie.net/liga-da-zueira-oficial/images/e/e2/1601006423639.png/revision/latest/window-crop/width/200/x-offset/162/y-offset/0/window-width/721/window-height/720?cb=20200925040341&path-prefix=pt-br">
-        <img id="enemy" class="images enemy-image" src="https://vignette.wikia.nocookie.net/liga-da-zueira-oficial/images/f/f5/1601006580817.png/revision/latest/scale-to-width-down/340?cb=20200925040545&path-prefix=pt-br">
+        <div id="player" class="images player-image">
+            <p *ngIf="damageEnemy != 0" class="damage">{{ damageEnemy }}</p>
+            <img width="100%" src="https://vignette.wikia.nocookie.net/liga-da-zueira-oficial/images/e/e2/1601006423639.png/revision/latest/window-crop/width/200/x-offset/162/y-offset/0/window-width/721/window-height/720?cb=20200925040341&path-prefix=pt-br">
+        </div>
+        <div id="enemy" class="images enemy-image">
+            <p *ngIf="damagePlayer != 0" class="damage">{{ damagePlayer }}</p>
+            <img width="100%" src="https://vignette.wikia.nocookie.net/liga-da-zueira-oficial/images/e/e2/1601006423639.png/revision/latest/window-crop/width/200/x-offset/162/y-offset/0/window-width/721/window-height/720?cb=20200925040341&path-prefix=pt-br">
+        </div>
+
+        <div class="enemy-info">
+
+            <span class="health-bar" id="enemyHealthBar"></span>
+            <span class="mana-bar" id="enemyManaBar"></span>
+
+        </div>
 
     </div>
 
 </div>
 
+<div *ngIf="!attackSkills" class="battle-choices">
 
-<button (click)="attack(enemy)">Attack</button>
-<button (click)="run()">Run</button>
-vida do inimigo: {{ enemy.health }}
+    <button (click)="attackSkills = true">Attack</button>
+    <button (click)="run()">Run</button>
 
+</div>
 
+<div *ngIf="attackSkills" class="battle-choices">
+
+    <button (click)="attack(enemy)">Basick Attack</button>
+    <button *ngFor="let skill of player.weapon.skills" (click)="attack(enemy)">{{ skill.name }}</button>
+
+</div>

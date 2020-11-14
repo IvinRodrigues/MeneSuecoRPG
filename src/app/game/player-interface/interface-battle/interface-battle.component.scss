@@ -178,11 +178,44 @@
 
     height: 400px;
     width: 1000px;
-    background-color: #f0f8ff96;
     position: absolute;
     left: -97px;
     top: -426px;
     z-index: 0;
+
+    .battle-wrapper {
+
+        .damage {
+
+            color: #f00;
+            font-size: 52px;
+            position: absolute;
+            left: 50px;
+            top: -51px;
+            opacity: 0;
+            transition-duration: .2s;
+            animation-name: DamageIndicator;
+            animation-duration: 2s;
+
+            @keyframes DamageIndicator {
+            
+                0% {
+            
+                    opacity: 1;
+            
+                }
+                100% {
+            
+                    top: -100px;
+                    opacity: 0;
+            
+                }
+            
+            }
+
+        }
+
+    }
 
 }
 
@@ -192,6 +225,7 @@
     height: 300px;
     position: absolute;
     top: 48px;
+    margin: 0 auto;
     transition-duration: .2s;
     animation-duration: 2s;
 
@@ -199,11 +233,20 @@
 
 .player-image {
 
+
 }
 
 .enemy-image {
 
     right: 0;
+
+}
+
+.enemy-info {
+
+    position: absolute;
+    right: -78px;
+    bottom: -4px;
 
 }
 

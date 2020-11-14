@@ -3,7 +3,8 @@ export let andadorElefente: any = {
     id: 'andadorElefante',
     name: 'Andador de Elefante',
     health: 100,
-    damage: 5,
+    mana: 100,
+    damage: 15,
     dialog: 'to andando de elefante, ta olhando o que seu paspalho?',
     answers: [
       { answer: 'desculpa, pode andar', reaction: 'neutral' },

@@ -11,9 +11,12 @@ export class InterfaceBattleComponent implements OnInit {
 
   @Input() enemy: any
   @Output() battleResult: EventEmitter<boolean> = new EventEmitter()
+  attackSkills: boolean = false
   player: any
   diceResult: number
   diceNumberVisibility: boolean = false
+  damagePlayer: number = 0
+  damageEnemy: number = 0
 
 
   constructor( private playerService: PlayerSerivce,
@@ -26,6 +29,9 @@ export class InterfaceBattleComponent implements OnInit {
 
 
   ngOnInit() {
+
+    document.getElementById('enemyHealthBar').style.height = `${this.enemy.health}px`
+    document.getElementById('enemyManaBar').style.height = `${this.enemy.mana}px`
 
   }
 
@@ -54,7 +60,7 @@ export class InterfaceBattleComponent implements OnInit {
 
 
   makeAttack(target) {
-
+    
     if(target == this.enemy) {
 
       document.getElementById('player').classList.add('player-basic-attack')
@@ -69,29 +75,31 @@ export class InterfaceBattleComponent implements OnInit {
         }
         else if(this.diceResult >= 2 && this.diceResult <= 5) {
 
-          this.enemyService.takeDamage(this.enemy.id ,this.player.damage)
+          this.damagePlayer = this.player.damage - 10
 
         }
         else if(this.diceResult >= 5 && this.diceResult <= 10) {
 
-          this.enemyService.takeDamage(this.enemy.id ,this.player.damage)
+          this.damagePlayer = this.player.damage -6
 
         }
         else if(this.diceResult >= 10 && this.diceResult <= 15) {
 
-          this.enemyService.takeDamage(this.enemy.id ,this.player.damage)
+          this.damagePlayer = this.player.damage - 2
 
         }
         else if(this.diceResult >= 15 && this.diceResult <= 19) {
 
-          this.enemyService.takeDamage(this.enemy.id ,this.player.damage)
+          this.damagePlayer = this.player.damage
 
         }
-        else{
+        else if(this.diceResult == 20){
 
-          alert('ultimate')
+          this.damagePlayer = this.player.damage + 10
 
         }
+
+        this.enemyService.takeDamage(this.enemy.id, this.damagePlayer)
 
         if(target.health <= 0) {
 
@@ -109,6 +117,9 @@ export class InterfaceBattleComponent implements OnInit {
             document.getElementById('enemy').classList.remove('enemy-recieve-basic-attack')
 
           }, 1000)
+
+          document.getElementById('enemyHealthBar').style.height = `${this.enemy.health}px`
+          document.getElementById('enemyManaBar').style.height = `${this.enemy.mana}px`
 
         }
 
@@ -129,29 +140,31 @@ export class InterfaceBattleComponent implements OnInit {
         }
         else if(this.diceResult >= 2 && this.diceResult <= 5) {
 
-          this.playerService.takeDamage(this.enemy.damage)
+          this.damageEnemy = this.enemy.damage - 10
 
         }
         else if(this.diceResult >= 5 && this.diceResult <= 10) {
 
-          this.playerService.takeDamage(this.enemy.damage)
+          this.damageEnemy = this.enemy.damage - 6
 
         }
         else if(this.diceResult >= 10 && this.diceResult <= 15) {
 
-          this.playerService.takeDamage(this.enemy.damage)
+          this.damageEnemy = this.enemy.damage - 2
 
         }
         else if(this.diceResult >= 15 && this.diceResult <= 19) {
 
-          this.playerService.takeDamage(this.enemy.damage)
+          this.damageEnemy = this.enemy.damage
 
         }
-        else {
+        else if(this.diceResult == 20) {
 
-          alert('ultimate')
+          this.damageEnemy = this.enemy.damage + 10
 
         }
+
+        this.playerService.takeDamage(this.damageEnemy)
 
         if(target.health <= 0) {
 
@@ -166,11 +179,15 @@ export class InterfaceBattleComponent implements OnInit {
 
         }, 1000)
 
-    }, 1200)
+      }, 1200)
 
     }
 
     this.diceNumberVisibility = false
+    this.attackSkills = false
+
+    this.damageEnemy = 0
+    this.damagePlayer = 0
 
   }
 
