@@ -24,13 +24,28 @@ export class InterfaceBattleComponent implements OnInit {
 
 
 
-  ngOnInit() { }
+  ngOnInit() {
+
+  }
 
 
 
   attack() {
 
-    this.makeAttack(this.enemy)
+    document.getElementById('diceWrapper').style.display = "block"
+
+    setTimeout( () => {
+
+      this.rollD20(1, 20)
+
+      setTimeout( () => {
+
+        this.makeAttack(this.enemy)
+        document.getElementById('diceWrapper').style.display = "none"
+
+      }, 2000)
+
+    }, 2000)
 
   }
 
@@ -38,92 +53,119 @@ export class InterfaceBattleComponent implements OnInit {
 
   makeAttack(target) {
 
-    this.rollD20(1, 20)
-
     if(target == this.enemy) {
 
-      if(this.d20Result == 1) {
+      document.getElementById('player').classList.add('player-basic-attack')
+      document.getElementById('enemy').classList.add('enemy-recieve-basic-attack')
 
-        alert('bruh')
+      setTimeout( ()=> {
 
-      }
-      else if(this.d20Result >= 2 && this.d20Result <= 5) {
+        if(this.d20Result == 1) {
 
-        this.enemyService.takeDamage(this.enemy.id ,this.player.damage)
+          alert('bruh')
 
-      }
-      else if(this.d20Result >= 5 && this.d20Result <= 10) {
+        }
+        else if(this.d20Result >= 2 && this.d20Result <= 5) {
 
-        this.enemyService.takeDamage(this.enemy.id ,this.player.damage)
+          this.enemyService.takeDamage(this.enemy.id ,this.player.damage)
 
-      }
-      else if(this.d20Result >= 10 && this.d20Result <= 15) {
+        }
+        else if(this.d20Result >= 5 && this.d20Result <= 10) {
 
-        this.enemyService.takeDamage(this.enemy.id ,this.player.damage)
+          this.enemyService.takeDamage(this.enemy.id ,this.player.damage)
 
-      }
-      else if(this.d20Result >= 15 && this.d20Result <= 19) {
+        }
+        else if(this.d20Result >= 10 && this.d20Result <= 15) {
 
-        this.enemyService.takeDamage(this.enemy.id ,this.player.damage)
+          this.enemyService.takeDamage(this.enemy.id ,this.player.damage)
 
-      }
-      else {
+        }
+        else if(this.d20Result >= 15 && this.d20Result <= 19) {
 
-        alert('ultimate')
+          this.enemyService.takeDamage(this.enemy.id ,this.player.damage)
 
-      }
+        }
 
-      if(target.health <= 0) {
+        else {
 
-        this.finishBattle('victory')
-        this.enemyService.die(this.enemy.id)
+          alert('ultimate')
 
-      }
-      else {
+        }
 
-        this.makeAttack( this.playerService.getPlayer() )
+        if(target.health <= 0) {
 
-      }
+          this.finishBattle('victory')
+          this.enemyService.die(this.enemy.id)
+
+        }
+        else {
+
+          setTimeout( () => {
+
+            this.makeAttack( this.playerService.getPlayer() )
+
+            document.getElementById('player').classList.remove('player-basic-attack')
+            document.getElementById('enemy').classList.remove('enemy-recieve-basic-attack')
+
+          }, 1000)
+
+        }
+
+      }, 1200)
 
     }
     else {
 
-      if(this.d20Result == 1) {
+      document.getElementById('player').classList.add('player-recieve-basic-attack')
+      document.getElementById('enemy').classList.add('enemy-basic-attack')
 
-        alert('bruh')
+      setTimeout( ()=> {
 
-      }
-      else if(this.d20Result >= 2 && this.d20Result <= 5) {
+        if(this.d20Result == 1) {
 
-        this.playerService.takeDamage(this.enemy.damage)
+          alert('bruh')
 
-      }
-      else if(this.d20Result >= 5 && this.d20Result <= 10) {
+        }
+        else if(this.d20Result >= 2 && this.d20Result <= 5) {
 
-        this.playerService.takeDamage(this.enemy.damage)
+          this.playerService.takeDamage(this.enemy.damage)
 
-      }
-      else if(this.d20Result >= 10 && this.d20Result <= 15) {
+        }
+        else if(this.d20Result >= 5 && this.d20Result <= 10) {
 
-        this.playerService.takeDamage(this.enemy.damage)
+          this.playerService.takeDamage(this.enemy.damage)
 
-      }
-      else if(this.d20Result >= 15 && this.d20Result <= 19) {
+        }
+        else if(this.d20Result >= 10 && this.d20Result <= 15) {
 
-        this.playerService.takeDamage(this.enemy.damage)
+          this.playerService.takeDamage(this.enemy.damage)
 
-      }
-      else {
+        }
+        else if(this.d20Result >= 15 && this.d20Result <= 19) {
 
-        alert('ultimate')
+          this.playerService.takeDamage(this.enemy.damage)
 
-      }
+        }
+        else {
 
-      if(target.health <= 0) {
+          alert('ultimate')
 
-        this.finishBattle('defeat')
+        }
 
-      }
+        if(target.health <= 0) {
+
+          this.finishBattle('defeat')
+
+        }
+
+        setTimeout( () => {
+
+          document.getElementById('player').classList.remove('player-recieve-basic-attack')
+          document.getElementById('enemy').classList.remove('enemy-basic-attack')
+
+        }, 1000)
+
+    }, 1200)
 
     }
 

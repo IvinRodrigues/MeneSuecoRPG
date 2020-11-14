@@ -1,0 +1,360 @@
+.dice-wrapper {
+
+    height: 720px;
+    width: 1280px;
+    position: absolute;
+    left: -240px;
+    top: -498px;
+    z-index: 2;
+    animation-name: DiceWrapper;
+    transition-duration: .2s;
+    animation-duration: 4s;
+    display: none;
+
+    @keyframes DiceWrapper {
+
+        0% {
+            
+            background-color: #00000000;
+        
+        }
+        20% {
+            
+            background-color: #000000d9;
+
+        }
+        80% {
+            
+            background-color: #000000d9;
+
+        }
+        100% {
+            
+            background-color: #00000000;
+
+        }
+
+    }
+
+    .cup {
+
+        width: 300px;
+        height: 400px;
+        background-color: salmon;
+        margin: 0 auto;
+        animation-name: Cup;
+        transition-duration: .2s;
+        animation-duration: 4s;
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: 3 !important;
+
+        @keyframes Cup {
+
+            0% {
+                
+                transform: translate(0, -500px) rotate(24deg);
+            
+            }
+            20% {
+                
+                transform: translate(0, 150px);
+
+            }
+            30% {
+                
+                transform: translate(0, 150px);
+
+            }
+            32% {
+                
+                transform: translate(50px, 150px);
+
+            }
+            34% {
+                
+                transform: translate(-50px, 150px);
+
+            }
+            38% {
+                
+                transform: translate(50px, 150px);
+
+            }
+            42% {
+                
+                transform: translate(-50px, 150px);
+
+            }
+            50% {
+                
+                transform: translate(0, 150px);
+
+            }
+            60% {
+                
+                transform: translate(0, -500px) rotate(24deg);
+
+            }
+            100% {
+                
+                transform: translate(0, -500px) rotate(24deg);
+
+            }
+    
+        }
+
+    }
+
+    .dice {
+
+        width: 100px;
+        height: 100px;
+        background-color: wheat;
+        margin: 0 auto;
+        animation-name: Dice;
+        transition-duration: .2s;
+        animation-duration: 4s;
+        margin-top: 300px;
+        z-index: 2 !important;
+
+        @keyframes Dice {
+
+            0% {
+                
+                transform: translate(0, 500px) rotate(-24deg);
+            
+            }
+            30% {
+                
+                transform: translate(0, 0);
+
+            }
+            79% {
+
+
+
+            }
+            65% {
+                
+                transform: scale(1);
+
+            }
+            75% {
+
+                transform: scale(1.2);
+
+            }
+            85% {
+
+                
+                transform: scale(1);
+
+            }
+            100% {
+                
+                transform: translate(0, 500px) rotate(24deg);
+
+            }
+    
+        }
+
+        .number-dice {
+
+            display: block;
+            color: black;
+            font-size: 22px;
+            padding-top: 40px;
+            text-align: center;
+
+        }
+
+    }
+
+}
+
+.battle-visualization {
+
+    height: 400px;
+    width: 1000px;
+    background-color: #f0f8ff96;
+    position: absolute;
+    left: -97px;
+    top: -426px;
+    z-index: 0;
+
+}
+
+.images {
+
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 48px;
+    transition-duration: .2s;
+    animation-duration: 2s;
+
+}
+
+.player-image {
+
+}
+
+.enemy-image {
+
+    right: 0;
+
+}
+
+/*Player Animations*/
+
+/*Make Attack*/
+
+.player-basic-attack {
+
+    animation-name: PlayerBasicAttack;
+
+    @keyframes PlayerBasicAttack {
+
+        0% {
+            
+            transform: translateX(0px);
+        
+        }
+        50% {
+
+            transform: translateX(-100px) rotate(-12deg);
+
+        }
+        60% {
+            
+            transform: translateX(400px) rotate(12deg);
+        
+        }
+        100% {
+            
+            transform: translateX(0px);
+
+        }
+
+    }
+
+}
+
+/*Recieve Damage*/
+
+.player-recieve-basic-attack {
+
+    animation-name: PlayerRecieveBasicAttack;
+
+    @keyframes PlayerRecieveBasicAttack {
+
+        59% {
+            
+            transform: translateY(0px);
+            filter: none;
+    
+        }
+        60% {
+            
+            transform: translateY(20px);
+            filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+        
+        }
+        65% {
+            
+            transform: translateY(-20px);
+    
+        }
+        70% {
+            
+            transform: translateY(20px);
+    
+        }
+        75% {
+            
+            transform: translateY(0px);
+            filter: none;
+    
+        }
+    
+    }
+
+}
+
+/*Enemy Animations*/
+
+/*Make Attack*/
+
+.enemy-basic-attack {
+
+    animation-name: EnemyBasicAttack;
+
+    @keyframes EnemyBasicAttack {
+
+        0% {
+            
+            transform: translateX(0px);
+        
+        }
+        50% {
+
+            transform: translateX(100px) rotate(12deg);
+
+        }
+        60% {
+            
+            transform: translateX(-400px) rotate(-12deg);
+        
+        }
+        100% {
+            
+            transform: translateX(0px);
+
+        }
+
+    }
+
+}
+
+/*Recieve Damage*/
+
+.enemy-recieve-basic-attack {
+
+    animation-name: EnemyRecieveBasicAttack;
+
+    @keyframes EnemyRecieveBasicAttack {
+
+        59% {
+            
+            transform: translateY(0px);
+            filter: none;
+
+        }
+        60% {
+            
+            transform: translateY(20px);
+            filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+        
+        }
+        65% {
+            
+            transform: translateY(-20px);
+
+        }
+        70% {
+            
+            transform: translateY(20px);
+
+        }
+        75% {
+            
+            transform: translateY(0px);
+            filter: none;
+
+        }
+
+    }
+
+}

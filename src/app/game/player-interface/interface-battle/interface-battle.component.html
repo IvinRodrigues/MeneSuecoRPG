@@ -1,3 +1,26 @@
+<div id="diceWrapper" class="dice-wrapper">
+
+    <div class="cup"></div>
+    <div class="dice">
+        <p class="number-dice">{{ d20Result }}</p>
+    </div>
+
+</div>
+
+<div class="battle-visualization">
+
+    <div class="battle-wrapper">
+
+        <img id="player" class="images player-image" src="https://vignette.wikia.nocookie.net/liga-da-zueira-oficial/images/e/e2/1601006423639.png/revision/latest/window-crop/width/200/x-offset/162/y-offset/0/window-width/721/window-height/720?cb=20200925040341&path-prefix=pt-br">
+        <img id="enemy" class="images enemy-image" src="https://vignette.wikia.nocookie.net/liga-da-zueira-oficial/images/f/f5/1601006580817.png/revision/latest/scale-to-width-down/340?cb=20200925040545&path-prefix=pt-br">
+
+    </div>
+
+</div>
+
+
 <button (click)="attack()">Attack</button>
 <button (click)="run()">Run</button>
 vida do inimigo: {{ enemy.health }}
+
+

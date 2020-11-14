@@ -2,9 +2,11 @@
 
     morreu kapa kapa
 
+    <button [routerLink]="['/']">Da uma apertadinha no pai</button>
+
 </div>
 
-<router-outlet></router-outlet>
-<player-interface-hud></player-interface-hud>
-<player-interface-map></player-interface-map>
-<player-interface-chat></player-interface-chat>
+<router-outlet *ngIf="!die"></router-outlet>
+<player-interface-hud *ngIf="!die"></player-interface-hud>
+<player-interface-map *ngIf="!die"></player-interface-map>
+<player-interface-chat *ngIf="!die"></player-interface-chat>

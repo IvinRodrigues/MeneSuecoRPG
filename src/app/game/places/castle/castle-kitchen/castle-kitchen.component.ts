@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EnemyService } from 'src/app/game/enemys/enemy.service';
 import { InterfaceChatService } from 'src/app/game/player-interface/interface-chat/interface-chat.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class CastleKitchenComponent implements OnInit {
 
 
 
-  constructor( private chatService: InterfaceChatService ) { }
+  constructor( private chatService: InterfaceChatService,
+               private enemyService: EnemyService ) { }
 
 
 
@@ -23,7 +25,7 @@ export class CastleKitchenComponent implements OnInit {
   openChat() {
 
     this.chatService.open()
-    this.chatService.sendDialog('ihh vai com calma cara')
+    this.chatService.sendDialog(this.enemyService.getEnemy('natureba'))
 
   }
 

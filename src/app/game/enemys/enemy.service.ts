@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { andadorElefente } from './andadorElefante'
+import { natureba } from './natureba'
 
 @Injectable({
 
@@ -25,6 +26,11 @@ export class EnemyService {
         if(id == 'andadorElefante'){
 
             return andadorElefente
+
+        }
+        else if (id == 'natureba') {
+
+            return natureba
 
         }
 

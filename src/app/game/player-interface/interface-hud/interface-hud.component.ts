@@ -27,6 +27,7 @@ export class InterfaceHudComponent implements OnInit {
         
         this.player = response
         this.changeLife(response.health)
+        this.changeMana(response.mana)
 
       }
 
@@ -38,9 +39,15 @@ export class InterfaceHudComponent implements OnInit {
 
   changeLife(health) {
 
-    console.log(health)
-
     document.getElementById('healthBar').style.height = `${health}px`
+
+  }
+
+
+
+  changeMana(mana) {
+
+    document.getElementById('manaBar').style.height = `${mana}px`
 
   }
 

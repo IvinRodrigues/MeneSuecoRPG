@@ -12,9 +12,37 @@
             display: inline-block;
             width: 24px;
             height: 300px;
-            background-color: green;
             border-radius: 8px;
             margin-left: 8px;
+            transition-duration: .2s;
+            background: linear-gradient(180deg, #00a824, #00e330, #00a824);
+            background-size: 600% 600%;
+        
+            -webkit-animation: HealthBackgroundAnimation 29s ease infinite;
+            -moz-animation: HealthBackgroundAnimation 29s ease infinite;
+            -o-animation: HealthBackgroundAnimation 29s ease infinite;
+            animation: HealthBackgroundAnimation 29s ease infinite;
+            
+            @-webkit-keyframes HealthBackgroundAnimation {
+                0%{background-position:49% 0%}
+                50%{background-position:52% 100%}
+                100%{background-position:49% 0%}
+            }
+            @-moz-keyframes HealthBackgroundAnimation {
+                0%{background-position:49% 0%}
+                50%{background-position:52% 100%}
+                100%{background-position:49% 0%}
+            }
+            @-o-keyframes HealthBackgroundAnimation {
+                0%{background-position:49% 0%}
+                50%{background-position:52% 100%}
+                100%{background-position:49% 0%}
+            }
+            @keyframes HealthBackgroundAnimation {
+                0%{background-position:49% 0%}
+                50%{background-position:52% 100%}
+                100%{background-position:49% 0%}
+            }
 
         }
 
@@ -23,9 +51,37 @@
             display: inline-block;
             width: 24px;
             height: 300px;
-            background-color: blue;
             margin-left: 14px;
             border-radius: 8px;
+            transition-duration: .2s;
+            background: linear-gradient(180deg, #006ba8, #00afe3, #006ba8);
+            background-size: 600% 600%;
+        
+            -webkit-animation: ManaBackgroundAnimation 29s ease infinite;
+            -moz-animation: ManaBackgroundAnimation 29s ease infinite;
+            -o-animation: ManaBackgroundAnimation 29s ease infinite;
+            animation: ManaBackgroundAnimation 29s ease infinite;
+        
+            @-webkit-keyframes ManaBackgroundAnimation {
+                0%{background-position:49% 0%}
+                50%{background-position:52% 100%}
+                100%{background-position:49% 0%}
+            }
+            @-moz-keyframes ManaBackgroundAnimation {
+                0%{background-position:49% 0%}
+                50%{background-position:52% 100%}
+                100%{background-position:49% 0%}
+            }
+            @-o-keyframes ManaBackgroundAnimation {
+                0%{background-position:49% 0%}
+                50%{background-position:52% 100%}
+                100%{background-position:49% 0%}
+            }
+            @keyframes ManaBackgroundAnimation {
+                0%{background-position:49% 0%}
+                50%{background-position:52% 100%}
+                100%{background-position:49% 0%}
+            }
 
         }
 
@@ -45,5 +101,7 @@
         }
 
     }
+
+
 
 }
