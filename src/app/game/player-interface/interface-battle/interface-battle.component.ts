@@ -30,7 +30,7 @@ export class InterfaceBattleComponent implements OnInit {
 
 
 
-  attack() {
+  attack(target) {
 
     document.getElementById('diceWrapper').style.display = "block"
 
@@ -40,7 +40,7 @@ export class InterfaceBattleComponent implements OnInit {
 
       setTimeout( () => {
 
-        this.makeAttack(this.enemy)
+        this.makeAttack(target)
         document.getElementById('diceWrapper').style.display = "none"
 
       }, 2000)
@@ -102,7 +102,7 @@ export class InterfaceBattleComponent implements OnInit {
 
           setTimeout( () => {
 
-            this.makeAttack( this.playerService.getPlayer() )
+            this.attack( this.playerService.getPlayer() )
 
             document.getElementById('player').classList.remove('player-basic-attack')
             document.getElementById('enemy').classList.remove('enemy-recieve-basic-attack')
@@ -168,6 +168,8 @@ export class InterfaceBattleComponent implements OnInit {
     }, 1200)
 
     }
+
+    this.d20Result = null
 
   }
 
