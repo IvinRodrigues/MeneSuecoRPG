@@ -2,7 +2,7 @@
 
     <div class="cup"></div>
     <div class="dice">
-        <p class="number-dice">{{ d20Result }}</p>
+        <p id="numberDice" *ngIf="diceNumberVisibility" class="number-dice">{{ diceResult }}</p>
     </div>
 
 </div>
