@@ -37,7 +37,7 @@ export class InterfaceBattleComponent implements OnInit {
 
 
 
-  attack(target) {
+  attack(target, playerAnimation, weaponAnimation?, skillDamage?) {
 
     document.getElementById('diceWrapper').style.display = "block"
 
@@ -48,7 +48,7 @@ export class InterfaceBattleComponent implements OnInit {
 
       setTimeout( () => {
 
-        this.makeAttack(target)
+        this.makeAttack(target, playerAnimation, weaponAnimation, skillDamage)
         document.getElementById('diceWrapper').style.display = "none"
 
       }, 2000)
@@ -59,12 +59,13 @@ export class InterfaceBattleComponent implements OnInit {
 
 
 
-  makeAttack(target) {
+  makeAttack(target, playerAnimation, weaponAnimation?, skillDamage?) {
     
     if(target == this.enemy) {
 
-      document.getElementById('player').classList.add('player-basic-attack')
+      document.getElementById('player').classList.add(playerAnimation)
       document.getElementById('enemy').classList.add('enemy-recieve-basic-attack')
+      document.getElementById('playerWeapon').classList.add(weaponAnimation)
 
       setTimeout( ()=> {
 
@@ -75,27 +76,72 @@ export class InterfaceBattleComponent implements OnInit {
         }
         else if(this.diceResult >= 2 && this.diceResult <= 5) {
 
-          this.damagePlayer = this.player.damage - 10
+          if(skillDamage) {
+
+            this.damagePlayer = skillDamage - 10
+
+          }
+          else {
+          
+            this.damagePlayer = this.player.damage - 10
+
+          }
 
         }
         else if(this.diceResult >= 5 && this.diceResult <= 10) {
 
-          this.damagePlayer = this.player.damage -6
+          if(skillDamage) {
+
+            this.damagePlayer = skillDamage - 6
+
+          }
+          else {
+          
+            this.damagePlayer = this.player.damage -6
+
+          }
 
         }
         else if(this.diceResult >= 10 && this.diceResult <= 15) {
 
-          this.damagePlayer = this.player.damage - 2
+          if(skillDamage) {
+
+            this.damagePlayer = skillDamage - 2
+
+          }
+          else {
+          
+            this.damagePlayer = this.player.damage - 2
+
+          }
 
         }
         else if(this.diceResult >= 15 && this.diceResult <= 19) {
 
-          this.damagePlayer = this.player.damage
+          if(skillDamage) {
+
+            this.damagePlayer = skillDamage
+
+          }
+          else {
+          
+            this.damagePlayer = this.player.damage
+
+          }
 
         }
         else if(this.diceResult == 20){
 
-          this.damagePlayer = this.player.damage + 10
+          if(skillDamage) {
+
+            this.damagePlayer = skillDamage + 10
+
+          }
+          else {
+          
+            this.damagePlayer = this.player.damage + 10
+
+          }
 
         }
 
@@ -111,10 +157,11 @@ export class InterfaceBattleComponent implements OnInit {
 
           setTimeout( () => {
 
-            this.attack( this.playerService.getPlayer() )
+            this.attack( this.playerService.getPlayer(), 'enemy-basic-attack' )
 
-            document.getElementById('player').classList.remove('player-basic-attack')
+            document.getElementById('player').classList.remove(playerAnimation)
             document.getElementById('enemy').classList.remove('enemy-recieve-basic-attack')
+            document.getElementById('playerWeapon').classList.remove(weaponAnimation)
 
           }, 1000)
 
@@ -129,7 +176,7 @@ export class InterfaceBattleComponent implements OnInit {
     else {
 
       document.getElementById('player').classList.add('player-recieve-basic-attack')
-      document.getElementById('enemy').classList.add('enemy-basic-attack')
+      document.getElementById('enemy').classList.add(playerAnimation)
 
       setTimeout( ()=> {
 
@@ -175,7 +222,7 @@ export class InterfaceBattleComponent implements OnInit {
         setTimeout( () => {
 
           document.getElementById('player').classList.remove('player-recieve-basic-attack')
-          document.getElementById('enemy').classList.remove('enemy-basic-attack')
+          document.getElementById('enemy').classList.remove(playerAnimation)
 
         }, 1000)
 

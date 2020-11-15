@@ -233,6 +233,16 @@
 
 .player-image {
 
+    .player-weapon {
+
+        position: absolute;
+        top: 205px;
+        left: 68px;
+        width: 120px;
+        transition-duration: .2s;
+        animation-duration: 2s;
+
+    }
 
 }
 
@@ -325,6 +335,155 @@
     }
 
 }
+
+/*Spadita Animations*/
+
+    .spadita-cutucadita {
+
+        animation-name: SpaditaCutucatida;
+
+        @keyframes SpaditaCutucatida {
+
+
+            58% {
+                
+                transform: rotate(-24deg) translateX(-100px);
+
+            }
+            60% {
+                
+                transform: rotate(-24deg) translateX(100px);
+            
+            }
+
+        }
+
+    }
+
+    .player-spadita-bate-volta {
+
+        animation-name: PlayerSpaditaBateVolta;
+
+        @keyframes PlayerSpaditaBateVolta {
+
+            0% {
+            
+                transform: translateX(0px);
+            
+            }
+            50% {
+    
+                transform: translateX(-100px);
+    
+            }
+            60% {
+                
+                transform: translateX(100px);
+            
+            }
+            100% {
+                
+                transform: translateX(0px);
+    
+            }
+
+        }
+
+    }
+
+    .spadita-bate-volta {
+
+        animation-name: SpaditaBateVolta;
+
+        @keyframes SpaditaBateVolta {
+
+            0% {
+            
+                transform: translateX(0px);
+            
+            }
+            50% {
+    
+                transform: translateX(-100px) rotate(-12deg);
+    
+            }
+            60% {
+                
+                transform: translateX(500px) rotate(360deg);
+            
+            }
+            100% {
+                
+                transform: translateX(0px);
+    
+            }
+
+        }
+
+    }
+
+    .player-spadita-cabecita {
+
+        animation-name: PlayerSpaditaCabecita;
+
+        @keyframes PlayerSpaditaCabecita {
+
+            0% {
+            
+                transform: translateX(0px);
+            
+            }
+            50% {
+    
+                // transform: translateY(-200px);
+    
+            }
+            60% {
+                
+                transform: translateY(-100px) translateX(-100px);
+            
+            }
+            100% {
+                
+                transform: translateX(0px);
+    
+            }
+
+        }
+
+    }
+
+    .spadita-cabecita {
+
+        animation-name: SpaditaCabecita;
+
+        @keyframes SpaditaCabecita {
+
+            // 0% {
+            
+            //     transform: translateX(0px);
+            
+            // }
+            // 50% {
+    
+            //     transform: translateX(-100px);
+    
+            // }
+            // 60% {
+                
+            //     transform: translateX(100px);
+            
+            // }
+            // 100% {
+                
+            //     transform: translateX(0px);
+    
+            // }
+
+        }
+
+    }
+
 
 /*Enemy Animations*/
 

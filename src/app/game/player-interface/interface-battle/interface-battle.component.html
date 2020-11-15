@@ -14,10 +14,11 @@
         <div id="player" class="images player-image">
             <p *ngIf="damageEnemy != 0" class="damage">{{ damageEnemy }}</p>
             <img width="100%" src="https://vignette.wikia.nocookie.net/liga-da-zueira-oficial/images/e/e2/1601006423639.png/revision/latest/window-crop/width/200/x-offset/162/y-offset/0/window-width/721/window-height/720?cb=20200925040341&path-prefix=pt-br">
+            <img id="playerWeapon" class="player-weapon" src="https://www.tienda-medieval.com/blog/wp-content/uploads/2010/12/Espada-de-Jaime-I.jpg">
         </div>
         <div id="enemy" class="images enemy-image">
             <p *ngIf="damagePlayer != 0" class="damage">{{ damagePlayer }}</p>
-            <img width="100%" src="https://vignette.wikia.nocookie.net/liga-da-zueira-oficial/images/e/e2/1601006423639.png/revision/latest/window-crop/width/200/x-offset/162/y-offset/0/window-width/721/window-height/720?cb=20200925040341&path-prefix=pt-br">
+            <img width="100%" src="https://media.discordapp.net/attachments/326104896619413521/777359939001778206/andador_de_elefante.png?width=660&height=660">
         </div>
 
         <div class="enemy-info">
@@ -40,7 +41,7 @@
 
 <div *ngIf="attackSkills" class="battle-choices">
 
-    <button (click)="attack(enemy)">Basick Attack</button>
-    <button *ngFor="let skill of player.weapon.skills" (click)="attack(enemy)">{{ skill.name }}</button>
+    <button (click)="attack(enemy, 'player-basic-attack')">Basick Attack</button>
+    <button *ngFor="let skill of player.weapon.skills" (click)="attack(enemy, skill.classPlayerAnimation, skill.classAnimation, skill.damage)">{{ skill.name }}</button>
 
 </div>
