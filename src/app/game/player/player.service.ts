@@ -27,6 +27,14 @@ export class PlayerSerivce {
 
 
 
+    updatePlayer() {
+
+        this.playerStatus.next(player)
+
+    }
+
+
+
     takeDamage(damage) {
 
         player.health = player.health - damage

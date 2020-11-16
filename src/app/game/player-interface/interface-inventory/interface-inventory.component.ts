@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ItensService } from '../../itens/itens.service';
+import { PlayerSerivce } from '../../player/player.service';
 
 @Component({
   selector: 'player-interface-inventory',
@@ -10,14 +12,43 @@ export class InterfaceInventoryComponent implements OnInit {
 
   @Output() closeInventoryEvent: EventEmitter<boolean> = new EventEmitter()
 
+  inventory: any
+
   
 
-  constructor() { }
+  constructor( private playerService: PlayerSerivce,
+               private itensService: ItensService ) {
+
+    this.playerService.currentPlayerStatus.subscribe(
+
+      response => { this.inventory = response.inventory }
+
+    )
+
+  }
 
 
 
   ngOnInit() {
+
+
+
   }
+
+
+
+  itemInteraction(item) {
+
+    this.itensService.itemInteraction(item, item.role)
+
+  }
+
+  add(id) {
+
+    this.itensService.addItemInventory(id)
+
+  }
+
 
 
   closeInventory() {

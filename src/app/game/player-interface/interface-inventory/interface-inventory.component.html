@@ -2,4 +2,8 @@
 
     <button (click)="closeInventory()">Close inventory</button>
 
+    <div (click)="add('spadita')">Adicionar Spadita ao inventario</div>
+
+    <div *ngFor="let item of inventory" [ngClass]="{'item-equipped':item.equipped == true}" (click)="itemInteraction(item)">{{ item.name }}</div>
+
 </div>

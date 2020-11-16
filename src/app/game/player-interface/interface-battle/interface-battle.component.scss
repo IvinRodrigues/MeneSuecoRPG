@@ -430,18 +430,43 @@
 
             0% {
             
-                transform: translateX(0px);
+                
             
             }
+            44% {
+
+                transform:translateY(40px);
+
+            }
+            45% {
+
+                transform: translateY(-500px);
+
+            }
             50% {
-    
-                // transform: translateY(-200px);
-    
+
+                transform: translateX(750px) translateY(-500px);
+
             }
             60% {
                 
-                transform: translateY(-100px) translateX(-100px);
+                transform: translateX(750px) translateY(-200px);
             
+            }
+            65% {
+
+                transform:  translateX(750px) translateY(-500px);
+
+            }
+            70% {
+
+                transform: translateX(0) translateY(-500px);
+
+            }
+            75% {
+
+                transform: translateX(0);
+
             }
             100% {
                 
@@ -459,26 +484,27 @@
 
         @keyframes SpaditaCabecita {
 
-            // 0% {
+            0% {
             
-            //     transform: translateX(0px);
-            
-            // }
-            // 50% {
+            }
+            44% {
+
+                transform: rotate(90deg);
+
+            }
+            69% {
+
+                transform: rotate(90deg);
+
+            }
+            85% {
+
+                transform: rotate(0deg);
+
+            }
+            100% {
     
-            //     transform: translateX(-100px);
-    
-            // }
-            // 60% {
-                
-            //     transform: translateX(100px);
-            
-            // }
-            // 100% {
-                
-            //     transform: translateX(0px);
-    
-            // }
+            }
 
         }
 
