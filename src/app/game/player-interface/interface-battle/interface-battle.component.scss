@@ -196,6 +196,7 @@
             transition-duration: .2s;
             animation-name: DamageIndicator;
             animation-duration: 2s;
+            z-index: 7;
 
             @keyframes DamageIndicator {
             
@@ -233,14 +234,56 @@
 
 .player-image {
 
+    .player-customization {
+
+        .t-shirt {
+
+            z-index: 1;
+
+        }
+
+        .pants {
+
+            z-index: 2;
+
+        }
+
+        .armor {
+
+            z-index: 3;
+
+        }
+
+        .boot {
+
+            z-index: 4;
+
+        }
+
+        .hand {
+
+            z-index: 6;
+
+        }
+
+
+        .player-clothing {
+
+            position: absolute;
+
+        }
+
+    }
+
     .player-weapon {
 
         position: absolute;
-        top: 205px;
-        left: 68px;
-        width: 120px;
+        top: -99px;
+        left: 75px;
+        width: 48px;
         transition-duration: .2s;
         animation-duration: 2s;
+        z-index: 5;
 
     }
 
@@ -347,12 +390,12 @@
 
             58% {
                 
-                transform: rotate(-24deg) translateX(-100px);
+                transform: translateX(79px) translateY(60px) rotate(72deg);
 
             }
             60% {
                 
-                transform: rotate(-24deg) translateX(100px);
+   
             
             }
 
@@ -404,12 +447,12 @@
             }
             50% {
     
-                transform: translateX(-100px) rotate(-12deg);
+                transform: translateX(79px) translateY(60px) rotate(72deg);
     
             }
             60% {
                 
-                transform: translateX(500px) rotate(360deg);
+                transform: translateX(583px) translateY(100px) rotate(90deg);
             
             }
             100% {
@@ -489,12 +532,12 @@
             }
             44% {
 
-                transform: rotate(90deg);
+                transform: translateX(-4px) translateY(176px) rotate(180deg);
 
             }
             69% {
 
-                transform: rotate(90deg);
+                transform: rotate(180deg);
 
             }
             85% {
