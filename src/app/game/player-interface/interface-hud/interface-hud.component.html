@@ -11,4 +11,4 @@
 </div>
 
 
-<player-interface-inventory *ngIf="inventory" (closeInventoryEvent)="changeInventoryCondition()"></player-interface-inventory>
+<player-interface-inventory [ngClass]="{'inventory-open':inventory}" (closeInventoryEvent)="changeInventoryCondition()"></player-interface-inventory>

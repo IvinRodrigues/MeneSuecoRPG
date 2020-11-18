@@ -2,7 +2,7 @@
 
     width: var(--global-width);
     height: var(--global-height);
-    background-color: #5f9ea0b4;
+    background-color: #000000f3;
     position: absolute;
     top: 0;
     z-index: 2;
@@ -12,5 +12,293 @@
 .item-equipped {
 
     color: red
+
+}
+
+.player-visualization {
+
+    height: 100%;
+    width: 450px;
+    position: absolute;
+    left: -74px;
+
+    .player-clouthing {
+
+        position: absolute;
+        top: 120px;
+
+    }
+
+    .player-weapon {
+
+        z-index: 2;
+        width: 310px;
+        top: 4px;
+        left: -15px;
+
+    }
+
+    .player-hand {
+
+        z-index: 3;
+
+    }
+
+    .player { margin-top: 120px; }
+
+}
+
+.player-slots {
+
+    position: absolute;
+    left: 322px;
+    top: 85px;
+
+    .weapon {
+
+        img {
+
+            transform: rotate(45deg) translateY(-5px);
+
+        }
+
+    }
+
+    div {
+
+        width: 80px;
+        height: 80px;
+        border: 1px solid #ffffff6b;
+        margin-top: 40px;
+        background: #ffffff00;
+        transition-duration: .2s;
+
+        &:hover {
+
+            border: 1px solid #ffffffd4;
+            background: #ffffff15;
+
+        }
+
+    }
+
+}
+
+.itens-invenotry {
+    
+    position: absolute;
+    left: 449px;
+    top: 84px;
+    width: 465px;
+    height: 621px;
+    overflow-x: auto;
+
+    .item-filter {
+
+        position: fixed;
+        top: 57px;
+
+        ul {
+
+            li {
+
+                display: inline-block;
+
+            }
+
+        }
+
+    }
+
+    .item {
+
+        margin: 10px 10px 0 0;
+        display: none;
+        color: white;
+        width: 80px;
+        height: 80px;
+        background-color: black;
+        border: 1px solid #ffffff6b;
+        background: #ffffff00;
+        transition-duration: .2s;
+
+        &:hover {
+
+            border: 1px solid #ffffffd4;
+            background: #ffffff15;
+
+        }
+
+    }
+
+    .item-visible {
+
+        display: inline-block;
+
+    }
+
+    .weapon {
+
+        transform: rotate(45deg) translateY(-5px);
+
+    }
+
+    .item-equipped {
+
+        border: 1px solid #43e9436e;
+
+        &:hover {
+
+            border: 1px solid #43e943d4;
+            background: #37ed6b52;
+
+        }
+
+    }
+
+}
+
+.item-info {
+
+    width: 334px;
+    height: 688px;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    transition-duration: .2s;
+    animation-name: open;
+    animation-duration: .2s;
+
+    .item-preview {
+
+        width: 324px;
+        height: 324px;
+        margin-left: 5px;
+
+        img {
+
+            width: 80%;
+            margin: 34px;
+
+        }
+
+    }
+
+    .item-text {
+
+        height: 253px;
+        padding: 0 24px 52px 24px;
+        overflow-y: auto;
+
+        .horizontal-divider {
+
+            display: block;
+            width: 80%;
+            height: 1px;
+            background-color: #ffffff82;
+            margin: 12px auto;
+
+        }
+
+        .item-name {
+
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2.1px;
+
+        }
+
+        .skill-name {
+
+            color: #ffffff;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2.1px;
+            padding-top: 24px;
+            margin-bottom: 0;
+
+        }
+
+        .skill-description {
+
+            color: #ffffffb1;
+            font-size: 16px;
+            margin-top: 12px;
+            margin-bottom: 6px;
+            font-weight: bold;
+
+        }
+
+        .skill-damage {
+
+            color: white;
+
+            b {
+
+                color: #f34747;
+
+            }
+
+        }
+
+    }
+
+    .item-options {
+
+        width: 334px;
+        height: 48px;
+        margin-top: 12px;
+
+        button {
+
+            color: white;
+            width: 100%;
+            height: 100%;
+            text-transform: uppercase;
+            font-size: 22px;
+            background-color: transparent;
+            border: solid 1px white;
+            cursor: pointer;
+            transition-duration: .2s;
+
+            &:hover {
+
+                background-color: #ffffff13;
+
+            }
+
+        }
+
+        .unequipp {
+
+            color: #ff3737;
+            border: solid 1px #ff3737;
+
+            &:hover {
+
+                background-color: #ff373710;
+
+            }
+
+        }
+
+    }
+
+    @keyframes open {
+        
+        0% {
+
+            right: -320px;
+
+        }
+        100% {
+
+            right: 16px;
+
+        }
+
+    }
 
 }

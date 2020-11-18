@@ -17,6 +17,7 @@ export class InterfaceBattleComponent implements OnInit {
   diceNumberVisibility: boolean = false
   damagePlayer: number = 0
   damageEnemy: number = 0
+  canAttack: boolean = true
 
 
   constructor( private playerService: PlayerSerivce,
@@ -39,6 +40,8 @@ export class InterfaceBattleComponent implements OnInit {
 
   attack(target, playerAnimation, weaponAnimation?, skillDamage?) {
 
+    this.canAttack = false
+
     document.getElementById('diceWrapper').style.display = "block"
 
     setTimeout( () => {
@@ -51,7 +54,7 @@ export class InterfaceBattleComponent implements OnInit {
         this.makeAttack(target, playerAnimation, weaponAnimation, skillDamage)
         document.getElementById('diceWrapper').style.display = "none"
 
-      }, 2000)
+      }, 1800)
 
     }, 2000)
 
@@ -65,7 +68,7 @@ export class InterfaceBattleComponent implements OnInit {
 
       document.getElementById('player').classList.add(playerAnimation)
       document.getElementById('enemy').classList.add('enemy-recieve-basic-attack')
-      document.getElementById('playerWeapon').classList.add(weaponAnimation)
+      if(this.player.weapon.image) { document.getElementById('playerWeapon').classList.add(weaponAnimation) }
 
       setTimeout( ()=> {
 
@@ -161,7 +164,7 @@ export class InterfaceBattleComponent implements OnInit {
 
             document.getElementById('player').classList.remove(playerAnimation)
             document.getElementById('enemy').classList.remove('enemy-recieve-basic-attack')
-            document.getElementById('playerWeapon').classList.remove(weaponAnimation)
+            if(this.player.weapon.image) { document.getElementById('playerWeapon').classList.remove(weaponAnimation) }
 
           }, 1000)
 
@@ -224,14 +227,16 @@ export class InterfaceBattleComponent implements OnInit {
           document.getElementById('player').classList.remove('player-recieve-basic-attack')
           document.getElementById('enemy').classList.remove(playerAnimation)
 
+          this.canAttack = true
+
         }, 1000)
 
       }, 1200)
 
     }
 
-    this.diceNumberVisibility = false
     this.attackSkills = false
+    this.diceNumberVisibility = false
 
     this.damageEnemy = 0
     this.damagePlayer = 0

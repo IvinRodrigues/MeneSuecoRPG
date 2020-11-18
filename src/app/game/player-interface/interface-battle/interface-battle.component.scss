@@ -4,7 +4,7 @@
     width: 1280px;
     position: absolute;
     left: -240px;
-    top: -498px;
+    top: -482px;
     z-index: 2;
     animation-name: DiceWrapper;
     transition-duration: .2s;
@@ -278,9 +278,9 @@
     .player-weapon {
 
         position: absolute;
-        top: -99px;
-        left: 75px;
-        width: 48px;
+        top: -102px;
+        left: -22px;
+        width: 235px;
         transition-duration: .2s;
         animation-duration: 2s;
         z-index: 5;

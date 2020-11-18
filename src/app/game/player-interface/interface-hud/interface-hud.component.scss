@@ -26,6 +26,19 @@
 
     }
 
+}
 
+player-interface-inventory {
+
+    position: absolute;
+    left: -1280px;
+    top: 0;
+    transition-duration: .4s;
+
+}
+
+.inventory-open {
+
+    left: 0;
 
 }

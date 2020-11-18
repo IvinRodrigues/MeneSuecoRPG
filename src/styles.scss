@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,900;1,500&display=swap');
+
 :root {
 
     --global-width: 1280px;
@@ -5,9 +7,31 @@
 
 }
 
+::-webkit-scrollbar {
+
+    background-color: transparent;
+    width: 4px;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    background-color: #ffffff8c;
+    border-radius: 8px;
+    transition-duration: .2s;
+
+    &:hover {
+
+        background-color: #ffffffc7;
+
+    }
+
+}
+
 body {
 
     background-color: #5a00a3;
+    font-family: 'Roboto', sans-serif;
 
 }
 

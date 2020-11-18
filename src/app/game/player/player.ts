@@ -8,6 +8,7 @@ export let player: any = {
     helmet: {},
     boot: {},
     armor: {},
-    inventory: []
+    inventory: [],
+    image: 'https://media.discordapp.net/attachments/326104896619413521/778031205072764928/mene_padrao.png?width=677&height=677'
 
 }

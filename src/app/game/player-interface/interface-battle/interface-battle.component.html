@@ -15,12 +15,12 @@
             <p *ngIf="damageEnemy != 0" class="damage">{{ damageEnemy }}</p>
             <div class="player-customization">
                 <img width="300px" class="player-clothing hand" src="https://media.discordapp.net/attachments/326104896619413521/778068513775943700/dsaddsadas.png?width=677&height=677">
-                <img id="playerWeapon" class="player-weapon" src="https://media.discordapp.net/attachments/326104896619413521/778080614615613503/espada.png">
+                <img id="playerWeapon" *ngIf="player.weapon.image" class="player-weapon" [src]="player.weapon.image">
                 <img width="300px" class="player-clothing boot" src="https://media.discordapp.net/attachments/326104896619413521/778042146061287435/Botas.png?width=677&height=677">
                 <img width="300px" class="player-clothing armor" src="https://media.discordapp.net/attachments/326104896619413521/778042143993233428/Sobretudo.png?width=677&height=677">
                 <img width="300px" class="player-clothing pants" src="https://media.discordapp.net/attachments/326104896619413521/778042147676356678/Calcas.png?width=677&height=677">
                 <img width="300px" class="player-clothing t-shirt" src="https://media.discordapp.net/attachments/326104896619413521/778042142144331776/Camisa.png?width=677&height=677">
-                <img width="100%" src="https://media.discordapp.net/attachments/326104896619413521/778031205072764928/mene_padrao.png?width=677&height=677">
+                <img width="100%" [src]="player.image">
             </div>
         </div>
         <div id="enemy" class="images enemy-image">
@@ -48,7 +48,7 @@
 
 <div *ngIf="attackSkills" class="battle-choices">
 
-    <button (click)="attack(enemy, 'player-basic-attack')">Basick Attack</button>
-    <button *ngFor="let skill of player.weapon.skills" (click)="attack(enemy, skill.classPlayerAnimation, skill.classAnimation, skill.damage)">{{ skill.name }}</button>
+    <button [disabled]="!canAttack" (click)="attack(enemy, 'player-basic-attack')">Basick Attack</button>
+    <button [disabled]="!canAttack" *ngFor="let skill of player.weapon.skills" (click)="attack(enemy, skill.classPlayerAnimation, skill.classAnimation, skill.damage)">{{ skill.name }}</button>
 
 </div>

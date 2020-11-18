@@ -1,19 +1,29 @@
 <div [ngClass]="{'chat-open':chatStatus}" class="chat">
 
-    <div *ngIf="!battle">
+    <!-- img src="https://media.discordapp.net/attachments/326104896619413521/778447279908585512/caixa.png" style="position: absolute;
+    z-index: 1;
+    left: -78px;
+    top: -57px;" -->
 
-        <span>{{ enemy.name }}</span>
-        <p>{{ chatMessage }}</p>
+    <div style="position: relative; z-index: 2;">
 
-        <div *ngIf="firstInteraction && !enemy.defeated?.status">
-            <p *ngFor="let answer of enemy.answers" (click)="answerDialog(answer.reaction)">
-                {{ answer.answer }}
-            </p>
+        <div *ngIf="!battle">
+
+            <span>{{ enemy.name }}</span>
+            <p>{{ chatMessage }}</p>
+
+            <div *ngIf="firstInteraction && !enemy.defeated?.status">
+                <p *ngFor="let answer of enemy.answers" (click)="answerDialog(answer.reaction)">
+                    {{ answer.answer }}
+                </p>
+            </div>
+
+            <button (click)="closeChat()">close chat</button>
+
         </div>
 
-        <button (click)="closeChat()">close chat</button>
+        <player-interface-battle [enemy]="enemy" (battleResult)="battleResult($event)" *ngIf="battle && !enemy.defeated?.status"></player-interface-battle>
 
     </div>
-    <player-interface-battle [enemy]="enemy" (battleResult)="battleResult($event)" *ngIf="battle && !enemy.defeated?.status"></player-interface-battle>
 
 </div>

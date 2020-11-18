@@ -13,6 +13,10 @@ export class InterfaceInventoryComponent implements OnInit {
   @Output() closeInventoryEvent: EventEmitter<boolean> = new EventEmitter()
 
   inventory: any
+  player: any
+  itemPreview: any = null
+
+  filter: string = 'helmet'
 
   
 
@@ -21,7 +25,7 @@ export class InterfaceInventoryComponent implements OnInit {
 
     this.playerService.currentPlayerStatus.subscribe(
 
-      response => { this.inventory = response.inventory }
+      response => { this.player = response, this.inventory = response.inventory }
 
     )
 
@@ -43,17 +47,29 @@ export class InterfaceInventoryComponent implements OnInit {
 
   }
 
-  add(id) {
-
-    this.itensService.addItemInventory(id)
-
-  }
-
 
 
   closeInventory() {
 
     this.closeInventoryEvent.emit(true)
+
+  }
+
+
+
+  changeFilter(filter) {
+
+    this.filter = filter
+
+    console.log(this.player)
+
+  }
+
+
+
+  itemPreviewInteraction(item) {
+
+    this.itemPreview = item
 
   }
 

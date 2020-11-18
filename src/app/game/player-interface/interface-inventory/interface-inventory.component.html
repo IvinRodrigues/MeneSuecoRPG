@@ -1,9 +1,103 @@
 <div class="inventory">
 
-    <button (click)="closeInventory()">Close inventory</button>
+    <button style="position: absolute; z-index: 7;" (click)="closeInventory()">Close inventory</button>
 
-    <div (click)="add('spadita')">Adicionar Spadita ao inventario</div>
+    <div class="player-visualization">
 
-    <div *ngFor="let item of inventory" [ngClass]="{'item-equipped':item.equipped == true}" (click)="itemInteraction(item)">{{ item.name }}</div>
+        <img width="450px" class="player-clouthing player-hand" src="https://media.discordapp.net/attachments/326104896619413521/778068513775943700/dsaddsadas.png?width=677&height=677">
+        <img width="450px" class="player-clouthing player-weapon" *ngIf="player.weapon" [src]="player.weapon.image">
+        <img width="450px" class="player" [src]="player.image">
+
+    </div>
+
+    <div class="player-slots">
+
+        <div class="helmet">
+
+
+
+
+        </div>
+
+        <div class="armor">
+
+            
+
+        </div>
+
+        <div class="weapon">
+
+            <img width="100%" *ngIf="player.weapon.image" [src]="player.weapon.image">
+
+        </div>
+
+        <div class="boots">
+
+            
+
+        </div>
+
+    </div>
+
+    <div class="itens-invenotry">
+
+        <nav class="item-filter">
+
+            <ul>
+
+                <li><Button (click)="changeFilter('helmet')">Helmet</Button></li>
+                <li><Button (click)="changeFilter('armor')">Armor</Button></li>
+                <li><Button (click)="changeFilter('weapon')">Weapon</Button></li>
+                <li><Button (click)="changeFilter('boots')">Boots</Button></li>
+                <li><Button (click)="changeFilter('food')">Food</Button></li>
+                <li><Button (click)="changeFilter('special')">Special</Button></li>
+
+            </ul>
+
+        </nav>
+
+        <div *ngFor="let item of inventory" [ngClass]="{'item-visible':item.role == filter, 'item-equipped':item.equipped == true}" (click)="itemPreviewInteraction(item)" class="item">
+
+           <img width="100%" [ngClass]="{'weapon':item.role == 'weapon'}" [src]="item.image">
+
+        </div>
+
+    </div>
+
+    <div *ngIf="itemPreview" class="item-info">
+
+        <div class="item-preview">
+
+            <img (click)="itemInteraction(itemPreview)" [src]="itemPreview.image">
+
+        </div>
+
+        <div class="item-text">
+
+            <h1 class="item-name">{{ itemPreview.name }}</h1>
+
+            <span class="horizontal-divider"></span>
+
+            <div *ngFor="let skill of itemPreview.skills">
+
+                <h2 class="skill-name">{{ skill.name }}</h2>
+
+                <p class="skill-description">{{ skill.description }}</p>
+                
+                <small class="skill-damage">Causa <b>{{ skill.damage }}</b> de dano</small>
+
+            </div>
+
+        </div>
+
+        <div class="item-options">
+
+            <button *ngIf="itemPreview !== player.weapon" (click)="itemInteraction(itemPreview)">Equipp</button>
+            <button *ngIf="itemPreview == player.weapon" class="unequipp" (click)="itemInteraction(itemPreview)">Unequipp</button>
+
+        </div>
+
+    </div>
+
 
 </div>
