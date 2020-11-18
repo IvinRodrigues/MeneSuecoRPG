@@ -2,4 +2,4 @@
 <img class="place-background" src="https://media.discordapp.net/attachments/326104896619413521/778071849929801762/digital-art-pixel-art-pixelated-pixels-wallpaper.jpg?width=1204&height=677">
 <button class="navigation-button" style="z-index: 1; position:relative;" [routerLink]="['/game/castle/kitchen']">Kitchen</button>
 <button class="navigation-button" style="z-index: 1; position:relative;" [routerLink]="['/game/castle/kitchen']">Kitchen</button>
-<img src="https://cdn.discordapp.com/attachments/326104896619413521/777702697079799858/Andador_de_elefante_2.png" draggable="false" (click)="openChat()" style="position: absolute;bottom: 104px; width: 300px; right: 200px;">
+<img [src]="andadorElefante.image" draggable="false" (click)="openChat()" style="position: absolute;bottom: 104px; width: 300px; right: 200px;">

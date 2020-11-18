@@ -1,3 +1,18 @@
+.enemy-image {
+
+    position: absolute;
+    right: -750px;
+    top: -34px;
+    transition-duration: .4s;
+
+}
+
+.enemy-image-show {
+
+    right: -156px;
+
+}
+
 .chat {
 
     color: white;
@@ -13,6 +28,42 @@
     right: 0;
     z-index: 1;
     transition-duration: .2s;
+
+    .enemy-name {
+
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: white;
+
+    }
+
+    .enemy-answers {
+
+        cursor: pointer;
+        padding: 12px;
+        margin: 0;
+
+        &:hover {
+
+            background-color: #ffffff2c;
+
+        }
+
+    }
+
+    .enemy-mensage {
+
+
+    }
+
+    .close-chat {
+
+        position: absolute;
+        top: -18px;
+        right: -18px;
+
+    }
 
 }
 .chat-open {

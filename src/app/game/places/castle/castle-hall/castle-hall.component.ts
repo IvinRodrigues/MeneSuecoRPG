@@ -7,10 +7,18 @@ import { InterfaceChatService } from 'src/app/game/player-interface/interface-ch
   templateUrl: './castle-hall.component.html',
   styleUrls: ['./castle-hall.component.scss']
 })
+
 export class CastleHallComponent implements OnInit {
+
+  andadorElefante: any 
+
+
 
   constructor( private chatService: InterfaceChatService,
                private enemyService: EnemyService ) {
+
+    this.andadorElefante = this.enemyService.findEnemy('andadorElefante')
+
   }
 
 

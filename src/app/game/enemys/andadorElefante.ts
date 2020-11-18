@@ -11,6 +11,8 @@ export let andadorElefente: any = {
       { answer: 'para de andar e da uma cavalgadinha aqui no pai kkkk', reaction: 'fight' },
     ],
     fightResult: { victory: 'da uma pegadita aqui na tromba do pai kkkk', defeat: 'morri', run: 'kkk bundão' },
-    defeated: { status: false, answer: 'ja morri caraio' }
+    defeated: { status: false, answer: 'ja morri caraio' },
+    cssClass: 'andadorElefante',
+    image: 'https://cdn.discordapp.com/attachments/326104896619413521/777702697079799858/Andador_de_elefante_2.png'
 
   }

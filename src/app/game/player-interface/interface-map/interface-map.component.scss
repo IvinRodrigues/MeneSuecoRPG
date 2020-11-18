@@ -27,4 +27,24 @@
     top: 0;
     z-index: 2;
 
+    .navegation {
+
+        span {
+
+            position: absolute;
+            z-index: 10;
+
+        }
+
+        .top {
+
+            width: 100%;
+            height: 48px;
+            top: 0;
+            background-color: red;
+
+        }
+
+    }
+
 }

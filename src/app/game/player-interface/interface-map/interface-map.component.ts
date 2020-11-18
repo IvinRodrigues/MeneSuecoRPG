@@ -26,6 +26,14 @@ export class InterfaceMapComponent implements OnInit {
 
 
 
+  testeScroll() {
+
+    console.log( 'scrollará' )
+
+  }
+
+
+
   changeMapCondition() {
 
     if(this.chatStatus == false) {

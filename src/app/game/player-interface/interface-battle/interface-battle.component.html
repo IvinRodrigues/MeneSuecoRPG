@@ -25,7 +25,7 @@
         </div>
         <div id="enemy" class="images enemy-image">
             <p *ngIf="damagePlayer != 0" class="damage">{{ damagePlayer }}</p>
-            <img width="100%" src="https://cdn.discordapp.com/attachments/326104896619413521/777702697079799858/Andador_de_elefante_2.png">
+            <img width="100%" [class]="enemy.cssClass" [src]="enemy.image">
         </div>
 
         <div class="enemy-info">

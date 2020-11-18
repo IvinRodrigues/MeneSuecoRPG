@@ -2,7 +2,20 @@
 
 </div>
 
-<div *ngIf="map" class="maximized-map">
+<div *ngIf="map" style="overflow: auto;" id="maximized-map" class="maximized-map">
+
+    <div class="navegation">
+
+        <span (mouseenter)="testeScroll()" class="top"></span>
+        <span class="right"></span>
+        <span class="down"></span>
+        <span class="left"></span>
+
+    </div>
+
+    <img width="200%" src="https://i.pinimg.com/originals/32/fc/cd/32fccd2fd0dffa5e25160338c2f58080.jpg">
+
+    <button style="position: absolute; top: 0;" (click)="testeScroll()">Scrollar</button>
 
     <button (click)="changeMapCondition()">Close map</button>
 

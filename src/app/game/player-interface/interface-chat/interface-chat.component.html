@@ -1,3 +1,7 @@
+
+
+<img [ngClass]="{'enemy-image-show':chatStatus && !battle}" class="enemy-image" [src]="enemy.image">
+
 <div [ngClass]="{'chat-open':chatStatus}" class="chat">
 
     <!-- img src="https://media.discordapp.net/attachments/326104896619413521/778447279908585512/caixa.png" style="position: absolute;
@@ -9,16 +13,16 @@
 
         <div *ngIf="!battle">
 
-            <span>{{ enemy.name }}</span>
-            <p>{{ chatMessage }}</p>
+            <span class="enemy-name">{{ enemy.name }}</span>
+            <p class="enemy-mensage">{{ chatMessage }}</p>
 
             <div *ngIf="firstInteraction && !enemy.defeated?.status">
-                <p *ngFor="let answer of enemy.answers" (click)="answerDialog(answer.reaction)">
+                <p *ngFor="let answer of enemy.answers" class="enemy-answers" (click)="answerDialog(answer.reaction)">
                     {{ answer.answer }}
                 </p>
             </div>
 
-            <button (click)="closeChat()">close chat</button>
+            <button class="close-chat" (click)="closeChat()">close chat</button>
 
         </div>
 

@@ -10,6 +10,7 @@ export let natureba: any = {
       { answer: 'to calmo pora', reaction: 'neutral' },
     ],
     fightResult: { victory: null, defeat: null, run: null },
-    defeated: { status: false, answer: null }
+    defeated: { status: false, answer: null },
+    image: 'https://i.ytimg.com/vi/Wdw2jAZp6ns/maxresdefault.jpg'
 
   }

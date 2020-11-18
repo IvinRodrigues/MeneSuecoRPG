@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,900;1,500&display=swap');
 
+@font-face {
+
+    font-family: 'DeterminationSans';
+    src: url('./assets/fonts/DeterminationMonoWebRegular-Z5oq.ttf');
+
+}
+
 :root {
 
     --global-width: 1280px;
